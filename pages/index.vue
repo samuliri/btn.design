@@ -1,23 +1,23 @@
 <template>
   <section class="container">
     <div>
-      <app-logo/>
+      <chromata/>
       <h1 class="title">
-        btn.design
+        btn
       </h1>
       <h2 class="subtitle">
-        One physical button.
+        One physical button
       </h2>
     </div>
   </section>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import Chromata from '~/components/Chromata.vue'
 
 export default {
   components: {
-    AppLogo
+    Chromata
   }
 }
 </script>
