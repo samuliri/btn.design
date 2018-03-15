@@ -1,13 +1,8 @@
 <template>
   <section class="container">
+  <script src="chromata.min.js"></script>
     <div>
       <chromata/>
-      <h1 class="title">
-        btn
-      </h1>
-      <h2 class="subtitle">
-        One physical button
-      </h2>
     </div>
   </section>
 </template>
@@ -29,6 +24,8 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex-flow: row wrap;
+  overflow: hidden;
 }
 
 .title {
