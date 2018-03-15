@@ -1,6 +1,5 @@
 <template>
   <section class="container">
-  <script src="chromata.min.js"></script>
     <div>
       <chromata/>
     </div>
