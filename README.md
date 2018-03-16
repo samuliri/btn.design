@@ -19,4 +19,4 @@ $ npm start
 $ npm run generate
 ```
 
-[Vue.js](https://vuejs.org/) App with [Nuxt.js](https://github.com/nuxt/nuxt.js) Framework.
+[Vue.js](https://vuejs.org/) App with [Nuxt.js](https://github.com/nuxt/nuxt.js) Framework and [Chromata](https://github.com/michaelbromley/chromata) Tool. Hosted on Netlify.
