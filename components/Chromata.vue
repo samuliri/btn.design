@@ -8,7 +8,7 @@
       <img src="unnamed4.jpg" id="image4" class="my-image" style="display:none">
       <img src="unnamed5.jpg" id="image5" class="my-image" style="display:none">
     </div>
-    <div>
+    <div class="btn-container">
       <button id="button" class="my-button">
         <h1 class="title">
           btn
@@ -38,7 +38,7 @@
           speed: 8, // 1 - 20
           turningAngle: Math.PI/2, // Math.PI
           colorMode: 'greyscale', // color, greyscale
-          lineWidth: 3, // 1-10
+          lineWidth: 2, // 1-10
           lineMode: 'square', // smooth, square, point
           compositeOperation: 'lighten', // lighten, saturation
           origin: ['50% 50%'], // bottom, top, left, right
@@ -49,7 +49,7 @@
 
       var chromata2 = new Chromata(image2, {
           pathFinderCount: 100, // 1 - 500
-          speed: 8, // 1 - 20
+          speed: 7, // 1 - 20
           turningAngle: Math.PI/6, // Math.PI
           colorMode: 'greyscale', // color, greyscale
           lineWidth: 2, // 1-10
@@ -63,7 +63,7 @@
 
       var chromata3 = new Chromata(image3, {
           pathFinderCount: 500, // 1 - 500
-          speed: 7, // 1 - 20
+          speed: 4, // 1 - 20
           turningAngle: Math.PI/2, // Math.PI
           colorMode: 'greyscale', // color, greyscale
           lineWidth: 3, // 1-10
@@ -77,7 +77,7 @@
 
       var chromata4 = new Chromata(image4, {
           pathFinderCount: 1000, // 1 - 500
-          speed: 8, // 1 - 20
+          speed: 7, // 1 - 20
           turningAngle: Math.PI, // Math.PI
           colorMode: 'color', // color, greyscale
           lineWidth: 2, // 1-10
@@ -91,7 +91,7 @@
 
       var chromata5 = new Chromata(image5, {
           pathFinderCount: 250, // 1 - 500
-          speed: 8, // 1 - 20
+          speed: 7, // 1 - 20
           turningAngle: Math.PI, // Math.PI
           colorMode: 'greyscale', // color, greyscale
           lineWidth: 3, // 1-10
@@ -118,19 +118,23 @@
       var start = 0;
       var i = 1;
       var current = "";
+      var btnc = document.querySelector('.btn-container');
+      var subtitle = document.querySelector('.subtitle');
 
       function event() {
         if(start == 0) {
           if(current == chromata5) {
             current.reset();
-            document.getElementById("image5").style.display = "none";
+            document.querySelector('#image5').style.display = "none";
           }
+          btnc.classList.add("move-down");
+          setTimeout(function(){ subtitle.style.display = "none"; }, 500);
           chromata1.start();
           start = 1;
         } else {
           current = eval(" chromata"+i);
           current.reset();
-          document.getElementById("image"+i).style.display = "none";
+          document.querySelector("#image"+i).style.display = "none";
           i++;
           var next = eval(" chromata"+i);
           next.start();
@@ -147,12 +151,17 @@
 </script>
 
 <style>
+
+  .container {
+    position: relative;
+  }
+
   .img-container {
     width: 100vw;
   }
 
   canvas {
-    cursor: none;
+    //cursor: none;
   }
 
   .my-image {
@@ -163,6 +172,22 @@
   .my-button {
     margin: 15px;
     border-radius: 10px;
-    cursor: help;
+    cursor: e-resize;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  .my-button:hover {
+    background-color: rgba(240, 240, 240, 0.9);
+    transition: background-color 0.18s ease-in-out;
+  }
+
+  .btn-container {
+    position: absolute;
+    bottom: 50%;
+  }
+
+  .move-down {
+    bottom: 0;
+    transition: bottom 0.8s ease-in-out;
   }
 </style>
